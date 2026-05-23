@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Varshith Bonagiri</title>
+  <meta name="description" content="Open-source offensive security tools by Varshith Bonagiri. Mega-Finder recon scanner, web application penetration testing tool.">
+  <meta name="theme-color" content="#0a0e0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0e0a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-weight='700' font-size='18' fill='%2365d962' text-anchor='middle'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-dot"></span>
+      <span class="brand-name">varshith<span class="at">@</span><span class="host">offsec</span>:~$</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">home</a>
+      <a href="projects.html" class="active">projects</a>
+      <a href="writeups.html">writeups</a>
+      <a href="about.html">about</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="page-header">
+    <div class="prompt-line">
+      <span class="user">varshith@offsec</span>
+      <span class="arrow">~&gt;</span>
+      <span class="cmd">ls -la ./projects/</span>
+    </div>
+    <h1><span class="accent">/</span>projects</h1>
+    <p>Open-source tooling I've built for offensive security work. Each is a real, working project with public source &mdash; not a tutorial follow-along.</p>
+  </section>
+
+  <section style="padding-top: 0;">
+
+    <!-- ============== MEGA-FINDER ============== -->
+    <article class="project">
+      <div class="project-header">
+        <h2 class="project-title">Mega-Finder<span class="slash">/</span>recon scanner</h2>
+        <span class="project-meta">Nov 2025 &middot; Python</span>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">async</span>
+        <span class="tag">aiohttp</span>
+        <span class="tag">recon</span>
+        <span class="tag">misconfig</span>
+        <span class="tag">javascript-analysis</span>
+        <span class="tag">cloud-discovery</span>
+      </div>
+
+      <p class="project-summary">
+        An async, high-concurrency reconnaissance engine that automates the boring parts of an external engagement. Crawl a target list, find what shouldn't be exposed, and dump structured output ready for triage. Ships with a 1M-entry wordlist and severity-classified output for direct intake into a report.
+      </p>
+
+      <div class="project-detections">
+        <strong>Detections</strong>
+        <code>.env</code> leaks &middot;
+        <code>.git</code> repository exposure &middot;
+        backup archives (zip, sql, tar.gz, bak) &middot;
+        Swagger / OpenAPI definitions &middot;
+        S3 and GCS buckets &middot;
+        GraphQL introspection &middot;
+        CORS misconfigurations &middot;
+        directory listing &middot;
+        CI / CD panel exposure &middot;
+        JS secret extraction (API keys, tokens, Firebase configs) &middot;
+        phpinfo &middot;
+        debug endpoints
+      </div>
+
+      <p class="project-summary" style="margin-top: 16px;">
+        Architecture: domain-restricted HTML crawler + deep JavaScript analyzer + async HTTP probe layer with concurrency controls and rate limiting. Per-target output as JSON + CSV + the actual leaked artifacts written to disk.
+      </p>
+
+      <div class="project-links">
+        <a href="https://github.com/Varshith9030/Mega-Finder" target="_blank" rel="noopener">source on github</a>
+        <a href="https://github.com/Varshith9030/Mega-Finder#readme" target="_blank" rel="noopener">documentation</a>
+      </div>
+    </article>
+
+    <!-- ============== WEB APP PENTEST TOOL ============== -->
+    <article class="project">
+      <div class="project-header">
+        <h2 class="project-title">Web App Penetration Testing Tool<span class="slash">/</span>vulnerability scanner</h2>
+        <span class="project-meta">Dec 2024 &middot; Python</span>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">selenium</span>
+        <span class="tag">owasp-top-10</span>
+        <span class="tag">xss</span>
+        <span class="tag">sqli</span>
+        <span class="tag">csrf</span>
+        <span class="tag">reportlab</span>
+      </div>
+
+      <p class="project-summary">
+        Python-based web vulnerability scanner that crawls targets and tests for OWASP Top 10 issues. Uses Selenium for headless-browser detection of DOM-based and JavaScript-rendered flaws that static scanners typically miss. Outputs structured PDF reports with severity ratings and proof-of-concept payloads.
+      </p>
+
+      <div class="project-detections">
+        <strong>Tests</strong>
+        Cross-Site Scripting (Reflected + DOM-based) &middot;
+        SQL Injection &middot;
+        Cross-Site Request Forgery &middot;
+        common OWASP Top 10 patterns
+      </div>
+
+      <div class="project-links">
+        <a href="https://github.com/Varshith9030/Web-Application-Penetration-Testing-Tool" target="_blank" rel="noopener">source on github</a>
+      </div>
+    </article>
+
+    <!-- ============== "MORE COMING" ============== -->
+    <article class="project" style="border-style: dashed; opacity: 0.85;">
+      <div class="project-header">
+        <h2 class="project-title" style="color: var(--text-dim);">[ next ]<span class="slash">/</span>in development</h2>
+        <span class="project-meta" style="color: var(--amber);">// TBD</span>
+      </div>
+      <p class="project-summary" style="color: var(--text-dim); font-style: italic;">
+        Currently iterating on internal tooling at FireCompass and exploring Active Directory enumeration utilities. New public projects land here as they ship.
+      </p>
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Varshith Bonagiri &middot; built with care, no trackers</span>
+    <div class="footer-links">
+      <a href="https://github.com/Varshith9030" target="_blank" rel="noopener">github</a>
+      <a href="https://www.linkedin.com/in/varshithbonagiri/" target="_blank" rel="noopener">linkedin</a>
+      <a href="mailto:bonagirivarshith@gmail.com">email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
