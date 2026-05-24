@@ -42,6 +42,47 @@
 
   <section style="padding-top: 0;">
 
+    <!-- ============== SUBDOMAIN HUNTER ============== -->
+    <article class="project">
+      <div class="project-header">
+        <h2 class="project-title">Subdomain Hunter<span class="slash">/</span>recursive enumeration pipeline</h2>
+        <span class="project-meta">May 2026 &middot; Python</span>
+      </div>
+
+      <div class="project-tags">
+        <span class="tag">async</span>
+        <span class="tag">enumeration</span>
+        <span class="tag">passive-recon</span>
+        <span class="tag">dns</span>
+        <span class="tag">wildcard-detection</span>
+        <span class="tag">batch-mode</span>
+      </div>
+
+      <p class="project-summary">
+        Multi-phase subdomain enumeration pipeline that orchestrates 9 external tools and 25 passive API sources into one coherent run. Built for engagement contexts where coverage matters more than speed &mdash; batch-mode runs across hundreds of targets, single-target runs with maximum depth. Auto-scales resource allocation based on workload.
+      </p>
+
+      <div class="project-detections">
+        <strong>Pipeline phases</strong>
+        Phase 0: external tools (subfinder, subdominator, assetfinder, amass, katana, findomain, sublist3r, bbot, puredns) &middot;
+        Phase 1: passive APIs (25 sources, 19 keyed + 6 free) &middot;
+        Phase 2: zone transfer (AXFR) &middot;
+        Phase 2.5: target-aware wordlist generation &middot;
+        Phase 3: brute force (114K-word seclists) &middot;
+        Phase 4: DNS record walking (CNAME, MX, NS, TXT) &middot;
+        Phase 5: recursive expansion (depth 4 with permutations + per-sub API recon)
+      </div>
+
+      <p class="project-summary" style="margin-top: 16px;">
+        Engineering highlights: per-parent wildcard DNS fingerprinting to filter false positives, dead-key tracking with masked errors, per-target output isolation for safe parallel runs, scope constraint patterns, and resume-from-file for long engagements. Outputs structured JSON with per-source attribution alongside flat text lists.
+      </p>
+
+      <div class="project-links">
+        <a href="https://github.com/Varshith9030/subdomain-hunter" target="_blank" rel="noopener">source on github</a>
+        <a href="https://github.com/Varshith9030/subdomain-hunter#readme" target="_blank" rel="noopener">documentation</a>
+      </div>
+    </article>
+
     <!-- ============== MEGA-FINDER ============== -->
     <article class="project">
       <div class="project-header">
@@ -86,50 +127,6 @@
         <a href="https://github.com/Varshith9030/Mega-Finder" target="_blank" rel="noopener">source on github</a>
         <a href="https://github.com/Varshith9030/Mega-Finder#readme" target="_blank" rel="noopener">documentation</a>
       </div>
-    </article>
-
-    <!-- ============== WEB APP PENTEST TOOL ============== -->
-    <article class="project">
-      <div class="project-header">
-        <h2 class="project-title">Web App Penetration Testing Tool<span class="slash">/</span>vulnerability scanner</h2>
-        <span class="project-meta">Dec 2024 &middot; Python</span>
-      </div>
-
-      <div class="project-tags">
-        <span class="tag">selenium</span>
-        <span class="tag">owasp-top-10</span>
-        <span class="tag">xss</span>
-        <span class="tag">sqli</span>
-        <span class="tag">csrf</span>
-        <span class="tag">reportlab</span>
-      </div>
-
-      <p class="project-summary">
-        Python-based web vulnerability scanner that crawls targets and tests for OWASP Top 10 issues. Uses Selenium for headless-browser detection of DOM-based and JavaScript-rendered flaws that static scanners typically miss. Outputs structured PDF reports with severity ratings and proof-of-concept payloads.
-      </p>
-
-      <div class="project-detections">
-        <strong>Tests</strong>
-        Cross-Site Scripting (Reflected + DOM-based) &middot;
-        SQL Injection &middot;
-        Cross-Site Request Forgery &middot;
-        common OWASP Top 10 patterns
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/Varshith9030/Web-Application-Penetration-Testing-Tool" target="_blank" rel="noopener">source on github</a>
-      </div>
-    </article>
-
-    <!-- ============== "MORE COMING" ============== -->
-    <article class="project" style="border-style: dashed; opacity: 0.85;">
-      <div class="project-header">
-        <h2 class="project-title" style="color: var(--text-dim);">[ next ]<span class="slash">/</span>in development</h2>
-        <span class="project-meta" style="color: var(--amber);">// TBD</span>
-      </div>
-      <p class="project-summary" style="color: var(--text-dim); font-style: italic;">
-        Currently iterating on internal tooling at FireCompass and exploring Active Directory enumeration utilities. New public projects land here as they ship.
-      </p>
     </article>
 
   </section>
