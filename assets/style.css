@@ -1023,3 +1023,12 @@ main > *:nth-child(5) { animation-delay: 0.45s; }
 @media (prefers-reduced-motion: reduce) {
   .t-fake-cursor { animation: none; }
 }
+
+/* quick action buttons under the terminal */
+.quick-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 24px 0 40px;
+}
