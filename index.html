@@ -31,7 +31,25 @@
 
 <main class="container">
 
-  <!-- ============== HERO ============== -->
+  <!-- ============== INTERACTIVE TERMINAL ============== -->
+  <section class="terminal-hero">
+    <div class="terminal" id="terminal" role="region" aria-label="Interactive terminal">
+      <div class="terminal-titlebar">
+        <span class="tt-dot tt-red"></span>
+        <span class="tt-dot tt-yellow"></span>
+        <span class="tt-dot tt-green"></span>
+        <span class="tt-title">varshith@offsec — bash</span>
+      </div>
+      <div class="terminal-body" id="terminal-body" tabindex="0">
+        <!-- streamed content gets injected here -->
+      </div>
+    </div>
+    <div class="terminal-hint">
+      <kbd>Tab</kbd> to autocomplete &middot; <kbd>↑↓</kbd> for history &middot; type <code>help</code> for commands
+    </div>
+  </section>
+
+  <!-- ============== STATIC HERO (fallback / accessible content) ============== -->
   <section class="hero">
     <div class="prompt-line">
       <span class="user">varshith@offsec</span>
@@ -181,5 +199,6 @@
   </div>
 </footer>
 
+<script src="assets/terminal.js" defer></script>
 </body>
 </html>

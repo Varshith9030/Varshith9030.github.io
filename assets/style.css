@@ -828,3 +828,198 @@ main > *:nth-child(5) { animation-delay: 0.45s; }
   .project-header { flex-direction: column; gap: 4px; }
   .project-meta { margin-top: 4px; }
 }
+
+/* ============================================================
+   interactive terminal hero
+   ============================================================ */
+
+.terminal-hero {
+  padding: 60px 0 30px;
+  position: relative;
+}
+
+.terminal {
+  background: #060906;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 0 40px rgba(101, 217, 98, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(101, 217, 98, 0.02);
+  position: relative;
+}
+
+/* faint phosphor glow border on hover */
+.terminal:hover {
+  box-shadow:
+    0 0 50px rgba(101, 217, 98, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 60px rgba(101, 217, 98, 0.03);
+  border-color: var(--border-hover);
+}
+
+.terminal-titlebar {
+  background: linear-gradient(180deg, #1a221c 0%, #131913 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.tt-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.tt-red    { background: #ff5f57; }
+.tt-yellow { background: #febc2e; }
+.tt-green  { background: #28c840; }
+
+.tt-title {
+  margin-left: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+
+.terminal-body {
+  padding: 18px 22px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 380px;
+  max-height: 520px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  cursor: text;
+  outline: none;
+}
+
+.terminal-body::-webkit-scrollbar { width: 8px; }
+.terminal-body::-webkit-scrollbar-track { background: transparent; }
+.terminal-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+.terminal-body::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* terminal text styling */
+.t-prompt {
+  color: var(--accent);
+  user-select: none;
+}
+.t-prompt .t-user  { color: var(--accent); }
+.t-prompt .t-host  { color: var(--cyan); }
+.t-prompt .t-path  { color: var(--amber); }
+.t-prompt .t-arrow { color: var(--text-dim); margin: 0 6px; }
+
+.t-cmd        { color: var(--text-bright); }
+.t-out        { color: var(--text); white-space: pre-wrap; }
+.t-out-dim    { color: var(--text-dim); }
+.t-out-accent { color: var(--accent); }
+.t-out-amber  { color: var(--amber); }
+.t-out-cyan   { color: var(--cyan); }
+.t-out-error  { color: var(--red); }
+.t-line       { margin: 0; padding: 0; }
+
+.t-link {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed currentColor;
+}
+.t-link:hover { color: var(--accent); }
+
+/* input line */
+.t-input-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.t-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--text-bright);
+  caret-color: var(--accent);
+  padding: 0;
+  margin-left: 4px;
+}
+
+/* blinking cursor when input is not focused */
+.t-fake-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+.terminal-hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+}
+
+.terminal-hint kbd {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text);
+}
+
+.terminal-hint code {
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* table-like output for skills/projects */
+.t-table {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 4px 0 8px 16px;
+}
+
+.t-table .t-key {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.t-table .t-val {
+  color: var(--text);
+}
+
+/* mobile: smaller terminal */
+@media (max-width: 640px) {
+  .terminal-body {
+    font-size: 12px;
+    padding: 14px 14px;
+    min-height: 320px;
+    max-height: 440px;
+  }
+  .tt-title { display: none; }
+  .terminal-hint { font-size: 10px; }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .t-fake-cursor { animation: none; }
+}
