@@ -108,7 +108,7 @@
       { html: '  &gt; Author client-facing disclosure reports with PoC exploits', cls: 't-out' },
       { html: '    and remediation guidance', cls: 't-out' },
       { html: '', cls: 't-out' },
-      { html: '<span class="t-out-accent">FireCompass</span> &middot; Junior Security Analyst', cls: 't-out' },
+      { html: '<span class="t-out-accent">FireCompass</span> &middot; Red Team Security Analyst Intern', cls: 't-out' },
       { html: '<span class="t-out-dim">Jun 2025 &mdash; Jun 2026 &middot; Bengaluru</span>', cls: 't-out' },
       { html: '', cls: 't-out' },
       { html: '  &gt; Executed adversary simulations across client environments;', cls: 't-out' },
